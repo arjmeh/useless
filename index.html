@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>useless</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!--Make a random number generator when a button is clicked-->
+    <button onclick="myFunction()">Generate a random number</button>
+    <p id="demo"></p>
+    <script>
+        function myFunction() {
+            var x = Math.floor((Math.random() * 100) + 1);
+            document.getElementById("demo").innerHTML = x;
+        }
+    </script>
+    <!--Do a random thing-->
+    <button onclick="myFunction2()">Do a random thing</button>
+    <p id="demo2"></p>
+    <script>
+        function myFunction2() {
+            var x = Math.floor((Math.random() * 100) + 1);
+            if (x < 50) {
+                document.getElementById("demo2").innerHTML = "You are a good person";
+            } else if (x < 75) {
+                document.getElementById("demo2").innerHTML = "You are a bad person";
+            } else {
+                document.getElementById("demo2").innerHTML = "You are a terrible person";
+            }
+        }
+    </script>
+    <!--make a login page that does nothing-->
+    <form>
+        <label for="username">Username:</label>
+        <input type="text" id="username">
+        <label for="password">Password:</label>
+        <input type="password" id="password">
+        <input type="submit" value="Submit" onclick="myFunction3()">
+    </form>
+    <!--Store the username and password in a cookie-->
+    <script>
+        function myFunction3() {
+            var x = document.getElementById("username").value;
+            var y = document.getElementById("password").value;
+            document.cookie = "username=" + x;
+            document.cookie = "password=" + y;
+        }
+    </script>
+    <!--Change the text to the username and password-->
+    <p id="demo3"></p>
+    <script>
+        document.getElementById("demo3").innerHTML = "Username: " + document.cookie.split(";")[0].split("=")[1] + "<br>Password: " + document.cookie.split(";")[1].split("=")[1];
+    </script>
+    <!--Make buttons to change the background color of the body-->
+    <button onclick="myFunction4()">Red</button>
+    <button onclick="myFunction5()">Green</button>
+    <button onclick="myFunction6()">Blue</button>
+    <button onclick="myFunction7()">White</button>
+    <script>
+        function myFunction4() {
+            document.body.style.backgroundColor = "red";
+        }
+        function myFunction5() {
+            document.body.style.backgroundColor = "green";
+        }
+        function myFunction6() {
+            document.body.style.backgroundColor = "blue";
+        }
+        function myFunction7() {
+            document.body.style.backgroundColor = "white";
+        }
+    </script>
+    <!--Make all the buttons look pretty-->
+
+    <!--Find the ip of the user-->
+    <p id="demo4"></p>
+    <script>
+        document.getElementById("demo4").innerHTML = "Your IP address is: " + window.location.hostname + "... I think";
+    </script>
+    <!--Make an alert button-->
+    <button onclick="myFunction8()">Alert</button>
+    <script>
+        function myFunction8() {
+            //alert a random thing
+            var x = Math.floor((Math.random() * 100) + 1);
+            if (x < 50) {
+                alert("poop");
+            } else if (x < 75) {
+                alert("this website is good");
+            } else {
+                alert("hi");
+            }
+        }
+    </script>
+    <!--Find location of the user-->
+    <p id="demo5"></p>
+    <script>
+        document.getElementById("demo5").innerHTML = "The link of this website is: " + window.location.href;
+    </script>
+    <!--Make a button that changes the text to the time-->
+    <p id="demo6"></p>
+    <button onclick="myFunction9()">Time</button>
+    <script>
+        function myFunction9() {
+            var d = new Date();
+            var t = d.toLocaleTimeString();
+            document.getElementById("demo6").innerHTML = t;
+        }
+    </script>
+    <!--Start a stopwatch when the button is clicked-->
+    <button onclick="myFunction10()">Start</button>
+    <p id="demo7"></p>
+    <script>
+        var start = 0;
+        function myFunction10() {
+            if (start == 0) {
+                start = 1;
+                var d = new Date();
+                var t = d.toLocaleTimeString();
+                document.getElementById("demo7").innerHTML = t;
+                setInterval(myFunction11, 1000);
+            }
+        }
+        function myFunction11() {
+            var d = new Date();
+            var t = d.toLocaleTimeString();
+            document.getElementById("demo7").innerHTML = t;
+        }
+    </script>
+    <!--Make a button that changes the text to the date-->
+    <p id="demo8"></p>
+    <button onclick="myFunction12()">Date</button>
+    <script>
+        function myFunction12() {
+            var d = new Date();
+            var t = d.toLocaleDateString();
+            document.getElementById("demo8").innerHTML = t;
+        }
+    </script>
+    <!--make a useless paragraph-->
+    <p id="demo9"></p>
+    <script>
+        document.getElementById("demo9").innerHTML = "This is a useless paragraph";
+    </script>
+    <!--Make a square that randomly appears on the screen and when it is clicked alert('you clicked me')-->
+    <button onclick="myFunction13()">Click me</button>
+    <script>
+        function myFunction13() {
+            var x = Math.floor((Math.random() * 100) + 1);
+            var y = Math.floor((Math.random() * 100) + 1);
+            var z = document.createElement("div");
+            z.style.position = "absolute";
+            z.style.left = x + "px";
+            z.style.top = y + "px";
+            z.style.width = "100px";
+            z.style.height = "100px";
+            z.style.backgroundColor = "red";
+            z.style.borderRadius = "50%";
+            z.style.cursor = "pointer";
+            z.onclick = function() {
+                alert("you clicked me");
+                //dissapear
+                z.style.display = "none";
+            }
+            document.body.appendChild(z);
+        }
+    </script>
+    <!--Have a resizable input where you have to write an essay and if the essay is more than 20 words then alert('you passed'), else alert('you failed')-->
+    <form>
+        <label for="essay">Write an essay over 20 words:</label>
+        <textarea id="essay" rows="5" cols="40"></textarea>
+        <input type="submit" value="Submit" onclick="myFunction14()">
+    </form>
+    <script>
+        function myFunction14() {
+            var x = document.getElementById("essay").value;
+            var y = x.split(" ").length;
+            if (y > 20) {
+                alert("you passed");
+            } else {
+                alert("you failed");
+            }
+        }
+    </script>
+    <!--Have a relaxing sounds button which plays relaxing sounds when clicked-->
+    <button onclick="myFunction15()">Relaxing sounds</button>
+    <script>
+        function myFunction15() {
+            var x = document.createElement("audio");
+            x.setAttribute("src", "kids-playing-1.mp3");
+            x.play();
+        }
+    </script>
+    <!--Make a button that reloads the page-->
+    <button onclick="myFunction16()">Stop Sound</button>
+    <script>
+        function myFunction16() {
+            location.reload();
+        }
+    </script>
+    <!--Make a button that makes everything look ugly-->
+    <br>
+    <button onclick="myFunction17()">Make Everything Look Ugly</button>
+    <script>
+        function myFunction17() {
+            document.body.style.backgroundColor = "black";
+            document.body.style.color = "white";
+            document.body.style.fontFamily = "Comic Sans MS";
+            document.body.style.fontSize = "50px";
+            document.body.style.fontWeight = "bold";
+            document.body.style.textAlign = "center";
+            document.body.style.textShadow = "2px 2px black";
+        }
+    </script>
+    <!--Change it back to normal-->
+    <button onclick="myFunction18()">Change it back to normal</button>
+    <script>
+        function myFunction18() {
+            location.reload()
+        }
+    </script>
+    <!--Make a button that makes the user take a picture-->
+    <br>
+    <button onclick="myFunction19()">Take a picture</button>
+    <script>
+        function myFunction19() {
+            navigator.mediaDevices.getUserMedia({video: true, audio: false})
+                .then(function(stream) {
+                    var video = document.createElement("video");
+                    video.style.position = "absolute";
+                    video.style.left = "0px";
+                    video.style.top = "0px";
+                    video.style.width = "100%";
+                    video.style.height = "100%";
+                    video.style.zIndex = "1";
+                    video.srcObject = stream;
+                    video.play();
+                    document.body.appendChild(video);
+                    setTimeout(function() {
+                        var canvas = document.createElement("canvas");
+                        canvas.style.position = "absolute";
+                        canvas.style.left = "0px";
+                        canvas.style.top = "0px";
+                        canvas.style.width = "100%";
+                        canvas.style.height = "100%";
+                        canvas.style.zIndex = "2";
+                        canvas.width = video.videoWidth;
+                        canvas.height = video.videoHeight;
+                        var ctx = canvas.getContext("2d");
+                        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+                        document.body.appendChild(canvas);
+                        var data = canvas.toDataURL("image/png");
+                        var a = document.createElement("a");
+                        a.href = data;
+                        a.download = "image.png";
+                        a.click();
+                        document.body.removeChild(canvas);
+                        document.body.removeChild(video);
+                    }, 5000);
+                })
+                .catch(function(err) {
+                    console.log(err.name + ": " + err.message);
+                });
+        }
+    </script>
+    <!--Add a counter to see how many times the user has visited the website-->
+    <p id="demo20"></p>
+    <script>
+        var x = 0;
+        document.getElementById("demo20").innerHTML = "You have visited this website " + x + " times";
+        x++;
+    </script>
+    <!--Add a star rating out of 5-->
+    <form>
+        <label for="rating">Rate this website out of 5:</label>
+        <input type="number" id="rating" name="rating" min="1" max="5">
+        <input type="submit" value="Submit" onclick="myFunction20()">
+    </form>
+    <script>
+        function myFunction20() {
+            var x = document.getElementById("rating").value;
+            var y = "";
+            for (var i = 0; i < x; i++) {
+                y += "&#9733;";
+            }
+            document.getElementById("demo20").innerHTML = y;
+        }
+    </script>
+    <b>
+    <!--Spotify-->
+    <form>
+        <label for="spotify">Search for a song:</label>
+        <input type="text" id="spotify" name="spotify">
+
+        <input type="submit" value="Search for Song on Spotify" onclick="myFunction21()">
+    </form>
+    <script>
+        function myFunction21() {
+            var x = document.getElementById("spotify").value;
+            var y = "https://open.spotify.com/search/" + x;
+            window.open(y);
+        }
+    </script>
+    </b>
+</body>
+</html>
